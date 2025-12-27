@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="p-5 pb-0">
+    
+    <!-- Header & CV download -->
+    <h1>Task Manager</h1>
+    <button id="weeklyReportBtn" class="btn btn-info w-25 h-25">
+         <b>הפקת דוח ביצועים והמלצות</b>
+    </button>
+
+    <!-- Add tasks -->
+    <h6 class="mt-4">Add a new mission</h6>
+    <form onsubmit="addTask(event)" class="border border-dark border-3 p-4 rounded mb-4">
+        <div class="form-group">
+            <div class="d-inline taskDescribtionDiv">
+                <label for="taskDescribtion" class="mb-2 d-inline taskDescribtionLabel">Task describtion:&nbsp; </label>
+                <input type="text" class="form-control w-25 d-inline" id="taskDescribtion" placeholder="What do you need to do?" required> &nbsp;
+            </div>
+            <div class="d-inline taskDueDateDiv">
+                <label for="taskDueDate" class="mb-2 mt-2 d-inline" id="taskDueDateLabel" >Deadline: </label> &nbsp;
+                <input type="date" class="form-control w-25 d-inline" id="taskDueDate" required> &nbsp; &nbsp; 
+            </div>
+            <div class="d-inline btnDiv">
+                <button type="submit" class="btn btn-dark w-25 align-self-stretch custom-btn d-inline">Add</button> 
+            </div>
+        </div>
+    </form>
+
+    <!-- Filters -->
+    <h6>Filters</h6>
+    <div class="border border-dark border-3 p-4 rounded mb-4">
+        <button type="submit" id="btn-all" onclick="buttonsOnClick('all')" class="btn btn-secondary w-25 align-self-stretch custom-btn d-inline active" data-bs-toggle="button" autocomplete="off">All</button> 
+        <button type="submit" id="btn-completed" onclick="buttonsOnClick('completed')" class="btn btn-success w-25 align-self-stretch custom-btn d-inline" data-bs-toggle="button" autocomplete="off">Completed</button>
+        <button type="submit" id="btn-pending" onclick="buttonsOnClick('pending')" class="btn btn-warning w-25 align-self-stretch custom-btn d-inline" data-bs-toggle="button" autocomplete="off">Pending</button> 
+    </div>
+
+    <!-- Sort by -->
+    <h6>Sort by</h6>
+    <div class="border border-dark border-3 p-4 rounded mb-4">
+        <button type="button" class="btn btn-dark w-25 align-self-stretch d-inline" data-bs-toggle="button" autocomplete="off" onclick="sortTasks()">Sort by due date</button> 
+    </div>
+
+    <!-- The missions list -->
+    <h6>Missions list</h6>
+    <div class="border border-dark border-3 p-4 rounded mb-4 missionsListDiv">
+        <ul class="list-group" id="ourTasksList"></ul>
+    </div>
+
+    <!-- Footer -->
+    <hr style="border: 2px solid black; width: 100%;">
+    <div>
+        <div class="site-builder-name h5">This project was developed as part of an academic course and is not intended for commercial use.</div>
+    </div>
+    <hr style="border: 2px solid black; width: 100%;">
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    
+</body>
+</html>
