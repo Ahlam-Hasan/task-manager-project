@@ -50,12 +50,22 @@ function renderTasks() {
             })
         }
     }
-    document.querySelectorAll('#completedIcon').forEach(icon => {
+
+    document.querySelectorAll('.completedIcon').forEach(icon => {
         icon.addEventListener('click', changeStatus);
     });
-    document.querySelectorAll('#deleteIcon').forEach(icon => {
+        document.querySelectorAll('.deleteIcon').forEach(icon => {
         icon.addEventListener('click', deleteMission);
     });
+
+
+    
+    // document.querySelectorAll('#completedIcon').forEach(icon => {
+    //     icon.addEventListener('click', changeStatus);
+    // });
+    // document.querySelectorAll('#deleteIcon').forEach(icon => {
+    //     icon.addEventListener('click', deleteMission);
+    // });
 }
 
 // Every task object becomes into its HTML representation
@@ -68,11 +78,20 @@ function taskToHTML(task) {
             <span class="mr-1 mb-4 d-block ${completedMissionCSS}"><b>Due:</b> ${task.dueDate}</span>
         </div>
         <div class="d-flex align-items-center">
-            <i class="fa-regular fa-square-check mb-2 me-3" id="completedIcon" data-id="${task.taskId}"></i>
-            <i class="fa-solid fa-trash-can mb-2" id="deleteIcon" data-id="${task.taskId}"></i>
+
+
+            <i class="completedIcon fa-regular fa-square-check" data-id="${task.taskId}"></i>
+            <i class="deleteIcon fa-solid fa-trash-can" data-id="${task.taskId}"></i>
+
         </div>
         </li>`;
 }
+/*<i class="fa-regular fa-square-check mb-2 me-3" id="completedIcon" data-id="${task.taskId}"></i>
+            <i class="fa-solid fa-trash-can mb-2" id="deleteIcon" data-id="${task.taskId}"></i>*/
+
+
+
+
 
 // When you press a button, it turns on and the other two turn off.
 const buttons = document.querySelectorAll('.custom-btn');
